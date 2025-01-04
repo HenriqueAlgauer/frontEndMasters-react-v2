@@ -26,13 +26,17 @@ const Details = () => {
   const pet = results.data.pets[0];
 
   return (
-    <div className="details">
+    <div className="flex flex-col gap-4 h-auto w-8/12 mx-auto">
       <Carousel images={pet.images} />
-      <div>
-        <h1>{pet.name}</h1>
-        <h2>{`${pet.animal} — ${pet.breed} — ${pet.city}, ${pet.state}`}</h2>
-        <button onClick={() => setShowModal(true)}>Adopt {pet.name}</button>
-        <p>{pet.description}</p>
+      <div className="flex flex-col">
+        <div className="flex justify-between mb-4">
+          <div className="flex flex-col">
+            <h1 className='text-3xl'>{pet.name}</h1>
+            <h2 className='text-xl'>{`${pet.animal} — ${pet.breed} — ${pet.city}, ${pet.state}`}</h2>
+          </div>
+          <button className='rounded bg-orange-400 text-white p-4 w-3/12' >Adopt {pet.name}</button>
+        </div>
+        <p className="mb-12">{pet.description}</p>
         {showModal ? (
           <Modal>
             <div>
